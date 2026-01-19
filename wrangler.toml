@@ -1,0 +1,12 @@
+name = "baijiu-chuhai"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "baijiu-chuhai-db"
+database_id = "your-database-id"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "baijiu-chuhai-images"

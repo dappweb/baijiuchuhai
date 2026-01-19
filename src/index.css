@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-700 to-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-primary-800 hover:to-primary-700 transition-all shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-gold {
+    @apply bg-gradient-to-r from-gold-600 to-gold-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-gold-700 hover:to-gold-600 transition-all shadow-lg hover:shadow-xl;
+  }
+}
