@@ -1,11 +1,12 @@
 name = "baijiu-chuhai"
 compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "baijiu-chuhai-db"
-database_id = "your-database-id"
+database_id = "92b0f0bd-8ee3-43b3-8313-0eb87133a3bc"
 
 [[r2_buckets]]
 binding = "BUCKET"

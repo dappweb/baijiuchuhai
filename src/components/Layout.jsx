@@ -1,6 +1,6 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Link } from 'wouter'
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-gradient-to-r from-primary-900 to-primary-800 text-white shadow-lg sticky top-0 z-50">
@@ -19,7 +19,7 @@ export default function Layout() {
       </header>
 
       <main className="flex-1">
-        <Outlet />
+        {children}
       </main>
 
       <footer className="bg-gray-900 text-gray-300 py-8">
