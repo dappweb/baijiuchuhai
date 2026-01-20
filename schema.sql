@@ -1,3 +1,4 @@
+
 -- 百酒出海数据库结构
 CREATE TABLE news (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -23,4 +24,11 @@ CREATE TABLE admins (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT NOT NULL UNIQUE,
   password_hash TEXT NOT NULL
+);
+
+CREATE TABLE site_content (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  content_key TEXT NOT NULL UNIQUE, -- 例如 'home_cta_title', 'seo_main_title'
+  content_value TEXT,
+  last_updated INTEGER DEFAULT (unixepoch())
 );

@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'wouter'
+import { useSiteContent } from '../contexts/SiteContentContext';
 
 export default function Home() {
+  const { content, loading } = useSiteContent();
+
   return (
     <div>
       {/* Hero Section */}
@@ -8,10 +11,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              中国白酒<span className="text-gold-400">出海中东</span>
+              {loading ? '...' : content.home_hero_title || '中国白酒出海中东'}
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">
-              专注迪拜市场，为中国酒企提供一站式出海解决方案
+              {loading ? '...' : content.home_hero_subtitle || '专注迪拜市场，为中国酒企提供一站式出海解决方案'}
             </p>
             <Link to="/contact" className="btn-gold inline-block">
               立即咨询
@@ -45,7 +48,7 @@ export default function Home() {
       <section className="bg-gradient-to-r from-gold-600 to-gold-500 py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            开启您的出海之旅
+            {loading ? '...' : content.home_cta_title || '开启您的出海之旅'}
           </h2>
           <Link to="/contact" className="bg-white text-gold-700 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition inline-block">
             联系我们

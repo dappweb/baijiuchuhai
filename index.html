@@ -10,5 +10,29 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Script to dynamically update SEO tags -->
+    <script>
+      (async () => {
+        try {
+          const response = await fetch('/api/content');
+          if (!response.ok) {
+            throw new Error('Failed to fetch site content for SEO');
+          }
+          const content = await response.json();
+
+          if (content.seo_main_title) {
+            document.title = content.seo_main_title;
+          }
+
+          const descriptionTag = document.querySelector('meta[name="description"]');
+          if (descriptionTag && content.seo_main_description) {
+            descriptionTag.setAttribute('content', content.seo_main_description);
+          }
+        } catch (error) {
+          console.error('Error updating SEO meta tags:', error);
+        }
+      })();
+    </script>
   </body>
 </html>

@@ -1,25 +1,28 @@
-import { Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-import Home from './pages/Home'
-import News from './pages/News'
-import NewsDetail from './pages/NewsDetail'
-import Contact from './pages/Contact'
-import AdminLogin from './pages/admin/Login'
-import AdminDashboard from './pages/admin/Dashboard'
+import { Route, Router, Link } from "wouter";
+import Home from "./pages/Home";
+import News from "./pages/News";
+import NewsDetail from "./pages/NewsDetail";
+import Contact from "./pages/Contact";
+import Layout from "./components/Layout";
+import Dashboard from "./pages/admin/Dashboard";
+import Login from "./pages/admin/Login";
+import { SiteContentProvider } from "./contexts/SiteContentContext";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="news" element={<News />} />
-        <Route path="news/:id" element={<NewsDetail />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-      <Route path="/admin/login" element={<AdminLogin />} />
-      <Route path="/admin" element={<AdminDashboard />} />
-    </Routes>
-  )
+    <SiteContentProvider>
+      <Layout>
+        <Router>
+          <Route path="/" component={Home} />
+          <Route path="/news" component={News} />
+          <Route path="/news/:id" component={NewsDetail} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/admin" component={Dashboard} />
+          <Route path="/admin/login" component={Login} />
+        </Router>
+      </Layout>
+    </SiteContentProvider>
+  );
 }
 
-export default App
+export default App;
